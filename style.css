@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Madimi One", sans-serif;
+}
+
+:root {
+    --purple: rgb(255, 0, 255);
+}
+
+body {
+    height: 100vh;
+    width: 100vh;
+    background-color: black;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px var(--purple);
+    font-size: 1.7rem;
+    justify-content: center;
+    width: 100vw;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--purple);
+    border-radius: 12px;
+}
+
+main {
+    padding: 3rem;
+    width: 100vw;
+}
+
+.game {
+    transition: all .3s ease-in-out;
+    width: 20%;
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 0 0 5px 5px;
+}
+
+.game img{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: -.3rem;
+}
+
+.game h2  {
+    padding: 1rem;
+}
+
+.game:hover{
+    transform: scale(1.03);
+    color: var(--purple);
+}
+
+.game:hover .h2 {
+    border-color: var(--purple);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+@media screen and (max-width:700px) {
+       main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+       }
+       .game {
+        width: 100%;
+       }
+}
