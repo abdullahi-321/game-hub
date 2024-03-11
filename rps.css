@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Madimi One", sans-serif;
+}
+
+:root {
+    --purple: rgb(255, 0, 255);
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    padding: 2rem;
+    font-size: 3rem;
+    text-shadow: 2px 2px var(--purple);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    color: var(--purple);
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    border-radius: 12px;
+    border-bottom: 1px solid var(--purple);
+}
+
+nav i {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 3rem;
+    color: var(--purple);
+    transition: all .3s ease;
+}
+
+nav i:hover {
+    color: rgb(255, 100, 255);
+    transform: scale(1.03);
+}
+
+main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin-top: 2rem;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+h3 {
+    margin-top: 2rem;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.options {
+    position: absolute;
+    bottom: 40%;
+}
+
+.option {
+    width: 7rem;
+    height: 7rem;
+    border: none;
+    border-radius: 50%;
+    margin: 0 1rem;
+}
+
+.rock {
+    background: url(assets/rpspics/rock.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.scissors {
+    background: url(assets/rpspics/scissors.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.paper {
+    background: url(assets/rpspics/paper.jpg) center no-repeat;
+    background-size: cover;
+}
+
+section {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    width: 100vw;
+}
+
+section span {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+}
+
+span div {
+    margin-top: 2rem;
+}
+
+section img {
+    width: 10rem;
+    border-radius: 50%;
+}
+
+label {
+    position: absolute;
+    bottom: -3rem;
+    right: 1rem;
+}
+
+label {
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-shadow: 2px 2px var(--purple);
+    font-size: 1.4rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width:700px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
