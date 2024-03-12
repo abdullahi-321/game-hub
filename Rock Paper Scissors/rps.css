@@ -84,17 +84,17 @@ h3 {
 }
 
 .rock {
-    background: url(assets/rpspics/rock.jpg) center no-repeat;
+    background: url(/assets/rpspics/rock.jpg) center no-repeat;
     background-size: cover;
 }
 
 .scissors {
-    background: url(assets/rpspics/scissors.jpg) center no-repeat;
+    background: url(/assets/rpspics/scissors.jpg) center no-repeat;
     background-size: cover;
 }
 
 .paper {
-    background: url(assets/rpspics/paper.jpg) center no-repeat;
+    background: url(/assets/rpspics/paper.jpg) center no-repeat;
     background-size: cover;
 }
 
@@ -151,4 +151,26 @@ button:hover {
     h1 {
         font-size: 1.5rem;
     }
+}
+
+.score {
+    color: white;
+    position: absolute;
+    top: 9rem;
+    right: 1rem;
+}
+
+.reset {
+    color: var(--purple);
+    box-shadow: none;
+    cursor: pointer;
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    transition: all .3s linear;
+}
+
+.reset:hover {
+    transform: scale(1.1);
+    color: rgb(255, 158, 255);
 }

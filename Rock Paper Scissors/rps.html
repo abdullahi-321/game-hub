@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/Rock Paper Scissors/rps.css" />
+    <link rel="shortcut icon" href="assets/rps.png" type="image/x-icon" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/index.html"><i class="bx bx-arrow-back"></i></a>
+      <h1>Rock Paper Scissors</h1>
+    </nav>
+
+    <main>
+      <h2>Choose:</h2>
+      <div class="Computer Choice"></div>
+      <div class="options">
+        <button class="option rock"></button>
+        <button class="option paper"></button>
+        <button class="option scissors"></button>
+      </div>
+    </main>
+    <section>
+      <span>
+        <div id="computerEl">
+          <img src="./assets/rpspics/paper.jpg" alt="" />
+          <h2>Computer</h2>
+        </div>
+        <div id="playerEl">
+          <img src="assets/rpspics/rock.jpg" alt="" />
+          <h2>Player</h2>
+        </div>
+      </span>
+      <h3>Computer Wins</h3>
+      <label>Click to continue</label>
+    </section>
+    <div class="score">
+      <p class="winEl">Win : 0</p>
+      <p class="loseEl">Lose : 0</p>
+    </div>
+
+    <p class="reset">Reset Score</p>
+
+    <script>
+
+      document.querySelector('.reset').onclick = ()=>{
+        let winScore = Number(localStorage.getItem("win"));
+            localStorage.setItem("win", 0);
+            winEl.innerHTML = "Win: " + ( Number(localStorage.getItem("win")) || 0);
+            let loseScore = Number(localStorage.getItem("lose"));
+            localStorage.setItem("lose", 0);
+            loseEl.innerHTML = "lose: " + ( Number(localStorage.getItem("lose")) || 0);
+      }
+
+      const options = document.querySelectorAll(".option");
+      const playerEl = document.querySelector("#playerEl");
+      const computerEl = document.querySelector("#computerEl");
+      const winnerEl = document.querySelector("h3");
+      const winEl = document.querySelector(".winEl");
+      const loseEl = document.querySelector(".loseEl");
+
+      winEl.innerHTML = "Win: " + Number(localStorage.getItem("win") || 0);
+      loseEl.innerHTML = "Lose: " + Number(localStorage.getItem("lose") || 0);
+
+      let computerOption = "";
+      let playerOption = "";
+
+      options.forEach((option) => {
+        option.addEventListener("click", () => {
+          const num = Math.floor(Math.random() * 3 + 1);
+          if (num == 1) {
+            computerOption = "rock";
+          } else if (num == 2) {
+            computerOption = "paper";
+          } else if (num == 3) {
+            computerOption = "scissors";
+          }
+          console.log(computerOption);
+          if (option.classList.contains("rock")) {
+            playerOption = "rock";
+          } else if (option.classList.contains("paper")) {
+            playerOption = "paper";
+          } else if (option.classList.contains("scissors")) {
+            playerOption = "scissors";
+          }
+          if (computerOption == playerOption) {
+            winnerEl.innerHTML = "draw";
+          } else if (
+            (computerOption == "paper" && playerOption == "scissors") ||
+            (computerOption == "rock" && playerOption == "paper") ||
+            (computerOption == "scissors" && playerOption == "rock")
+          ) {
+            winnerEl.innerHTML = "win";
+            let winScore = Number(localStorage.getItem("win"));
+            localStorage.setItem("win", winScore + 1);
+            winEl.innerHTML = "Win: " + ( Number(localStorage.getItem("win")) || 0);
+          } else {
+            winnerEl.innerHTML = "lose";
+            let loseScore = Number(localStorage.getItem("lose"));
+            localStorage.setItem("lose", loseScore + 1);
+            loseEl.innerHTML = "lose: " + ( Number(localStorage.getItem("lose")) || 0);
+          }
+
+          playerEl.innerHTML = `
+              <img src="/assets/rpspics/${playerOption}.jpg" alt=""><h2>Player</h2>
+              `;
+          computerEl.innerHTML = `
+              <img src="/assets/rpspics/${computerOption}.jpg" alt=""><h2>Computer</h2>
+              `;
+          document.querySelector("main").style.display = "none";
+          document.querySelector("section").style.display = "flex";
+
+          setTimeout(() => {
+            window.addEventListener("click", () => {
+              location.reload();
+            });
+          }, 100);
+        });
+      });
+    </script>
+  </body>
+</html>
