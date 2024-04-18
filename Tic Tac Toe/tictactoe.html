@@ -19,9 +19,13 @@
   </head>
   <body>
     <nav>
-      <a href="/index.html"><i class="bx bx-arrow-back"></i></a>
+      <a href="/index.html"><i class="i bx bx-arrow-back"></i></a>
       <h1>Tic Tac Toe</h1>
       <button>Reset Score</button>
+      <span2 class="coin"
+        ><i class="bx bxl-bitcoin" style="color: #fff800"></i>
+        <p class="coinEl"></p
+      ></span2>
     </nav>
     <aside class="scores">
       <h3 id="player1Score">Player 1:</h3>
@@ -42,6 +46,10 @@
       </main>
     </span>
     <script>
+      const coinEl = document.querySelector(".coinEl");
+      let coins = localStorage.getItem("coin") || 0;
+      coinEl.innerHTML = coins;
+
       let player1Turn = true;
       let player2Turn = false;
       let player1Score = localStorage.getItem("player1Score") || 0;
@@ -106,6 +114,9 @@
               (T1 && T5 && T9) ||
               (T3 && T5 && T7)
             ) {
+              let tempCoins = Number(localStorage.getItem("coin")) || 0;
+              tempCoins += 1;
+              localStorage.setItem("coin", tempCoins);
               localStorage.setItem("player1Score", player1Score + 1);
               player1Score = localStorage.getItem("player1Score") || 0;
               span.innerHTML = `<p>Player 1 wins</p>
@@ -120,6 +131,9 @@
               (F1 && F5 && F9) ||
               (F3 && F5 && F7)
             ) {
+              let tempCoins = Number(localStorage.getItem("coin")) || 0;
+              tempCoins += 1;
+              localStorage.setItem("coin", tempCoins);
               localStorage.setItem("player2Score", player2Score + 1);
               player2Score = localStorage.getItem("player2Score") || 0;
               span.innerHTML = `<p>Player 2 wins</p>

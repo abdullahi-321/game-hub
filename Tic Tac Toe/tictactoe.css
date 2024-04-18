@@ -30,7 +30,7 @@ nav {
   justify-content: center;
 }
 
-nav i {
+nav .i {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -39,9 +39,36 @@ nav i {
   transition: all 0.3s ease;
 }
 
-nav i:hover {
+nav .i:hover {
   color: rgb(255, 100, 255);
   transform: scale(1.03);
+}
+
+
+.bx {
+  text-shadow: none;
+}
+
+.coin p {
+  text-shadow: none;
+  font-size: 1.2rem;
+}   
+
+.coin i {
+  transform: scale(1.4);
+}
+
+.coinEl {
+  color: white;
+  margin-left: 1.5rem;
+}
+
+.coin{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 3rem;
+  right: 4rem;
 }
 
 main {

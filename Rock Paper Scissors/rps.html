@@ -19,8 +19,12 @@
   </head>
   <body>
     <nav>
-      <a href="/index.html"><i class="bx bx-arrow-back"></i></a>
+      <a href="/index.html"><i class=" arr bx bx-arrow-back"></i></a>
       <h1>Rock Paper Scissors</h1>
+      <span class="coin"
+        ><i class="bx bxl-bitcoin" style="color: #fff800"></i>
+        <p class="coinEl"></p
+      ></span>
     </nav>
 
     <main>
@@ -55,14 +59,19 @@
 
     <script>
 
-      document.querySelector('.reset').onclick = ()=>{
+      const coinEl = document.querySelector(".coinEl");
+      let coins = localStorage.getItem("coin") || 0;
+      coinEl.innerHTML = coins;
+
+      document.querySelector(".reset").onclick = () => {
         let winScore = Number(localStorage.getItem("win"));
-            localStorage.setItem("win", 0);
-            winEl.innerHTML = "Win: " + ( Number(localStorage.getItem("win")) || 0);
-            let loseScore = Number(localStorage.getItem("lose"));
-            localStorage.setItem("lose", 0);
-            loseEl.innerHTML = "lose: " + ( Number(localStorage.getItem("lose")) || 0);
-      }
+        localStorage.setItem("win", 0);
+        winEl.innerHTML = "Win: " + (Number(localStorage.getItem("win")) || 0);
+        let loseScore = Number(localStorage.getItem("lose"));
+        localStorage.setItem("lose", 0);
+        loseEl.innerHTML =
+          "lose: " + (Number(localStorage.getItem("lose")) || 0);
+      };
 
       const options = document.querySelectorAll(".option");
       const playerEl = document.querySelector("#playerEl");
@@ -102,15 +111,20 @@
             (computerOption == "rock" && playerOption == "paper") ||
             (computerOption == "scissors" && playerOption == "rock")
           ) {
+            let tempCoins = Number(localStorage.getItem('coin')) || 0
+            tempCoins += 1
+            localStorage.setItem('coin', tempCoins)
             winnerEl.innerHTML = "win";
             let winScore = Number(localStorage.getItem("win"));
             localStorage.setItem("win", winScore + 1);
-            winEl.innerHTML = "Win: " + ( Number(localStorage.getItem("win")) || 0);
+            winEl.innerHTML =
+              "Win: " + (Number(localStorage.getItem("win")) || 0);
           } else {
             winnerEl.innerHTML = "lose";
             let loseScore = Number(localStorage.getItem("lose"));
             localStorage.setItem("lose", loseScore + 1);
-            loseEl.innerHTML = "lose: " + ( Number(localStorage.getItem("lose")) || 0);
+            loseEl.innerHTML =
+              "lose: " + (Number(localStorage.getItem("lose")) || 0);
           }
 
           playerEl.innerHTML = `

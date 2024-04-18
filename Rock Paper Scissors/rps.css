@@ -22,6 +22,32 @@ h1 {
     text-shadow: 2px 2px var(--purple);
 }
 
+.bx {
+    text-shadow: none;
+}
+
+.coin p {
+    text-shadow: none;
+    font-size: 1.2rem;
+}   
+
+.coin i {
+    transform: scale(1.4);
+}
+
+.coinEl {
+    color: white;
+    margin-left: .5rem;
+}
+
+.coin{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 2rem;
+    right: 4rem;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -33,7 +59,7 @@ nav {
     border-bottom: 1px solid var(--purple);
 }
 
-nav i {
+nav .arr {
     position: absolute;
     top: 1rem;
     left: 1rem;
